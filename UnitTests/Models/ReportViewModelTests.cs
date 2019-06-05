@@ -58,18 +58,20 @@ namespace UnitTests.Models
             Assert.IsNotNull(result);
         }
 
-        /*[TestMethod]
-        public void ReportViewModel_NumberOfUsers_Set_Default_Should_Pass()
+        [TestMethod]
+        public void ReportViewModel_LogViewModel_Set_Default_Should_Pass()
         {
             // Arrange
             var myTest = new ReportViewModel();
+            var testModel = new LogViewModel();
+            testModel.LogList.Add(new LogModel { PhoneID = "NOTREAL" });
 
             // Act
-            myTest.NumberOfUsers = 1;
-            var result = myTest.NumberOfUsers;
+            myTest.LogViewModel = testModel;
+            var result = myTest.LogViewModel.LogList;
 
             // Assert
-            Assert.AreEqual(result, 1);
-        }*/
+            Assert.AreEqual("NOTREAL", result[0].PhoneID);
+        }
     }
 }
